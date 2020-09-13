@@ -34,26 +34,32 @@ function opcion(selected){
 function botonagregar() {
     
    if( opcion() == "Ingreso"){
-        var descrip = document.getElementById('descripcion').value;
+        let descrip = document.getElementById('descripcion').value;
         let monto = document.getElementById('monto').value;
         let suma = (parseFloat(contador_ingreso) + parseFloat(monto));
         contador_ingreso = suma;
-        ingreso_total.innerHTML = "<p>Ingresos:   " + contador_ingreso + "</p>" 
-        console.log("Ingreso")
-        suma = 0;
-        
+        ingreso_total.innerHTML = "<p>Ingresos:   + " + contador_ingreso + "</p>" 
        }
     if( opcion()== "Egreso"){
-       var descrip = document.getElementById('descripcion').value;
+       let descrip = document.getElementById('descripcion').value;
         let monto = document.getElementById('monto').value;
         let suma = (parseFloat(contador_egreso) + parseFloat(monto));
         contador_egreso = suma;
-       egreso_total.innerHTML = "<p>Egresos:   " + contador_egreso + "</p>" 
-        suma = 0;
-        console.log("Egreso")
+       egreso_total.innerHTML = "<p>Egresos:   - " + contador_egreso + "</p>" 
         
             }
+    /*Resta de valores todales*/
+    var diferencia = document.getElementById('diferencia');
+    var dif = (parseFloat(contador_ingreso) - parseFloat(contador_egreso));
+    diferencia.innerHTML = "\t\t<h1>" + dif + "</h1>"
+    
+    
+    /*Promedio de gastos*/
+    var porcentaje_gastos = ((parseFloat(contador_egreso) * 100 ) /parseFloat(contador_ingreso)).toFixed(2);
+    var prom = document.getElementById('porcentaje');
+    prom.innerHTML = "<p>" + porcentaje_gastos + " %</p>"
 }
+
 
 
 
