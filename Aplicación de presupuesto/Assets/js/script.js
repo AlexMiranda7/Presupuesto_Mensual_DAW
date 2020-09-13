@@ -33,17 +33,17 @@ function opcion(selected){
 
 function botonagregar() {
     
-   if( opcion() == "Ingreso"){
-        let descrip = document.getElementById('descripcion').value;
-        let monto = document.getElementById('monto').value;
-        let suma = (parseFloat(contador_ingreso) + parseFloat(monto));
+   if( opcion() == "Ingreso"){/*Si la opcion seleccionada es ingreso*/
+        let descrip = document.getElementById('descripcion').value; /*Se obrtiene el texto de descripción*/
+        let monto = document.getElementById('monto').value; /*Se obtiene el monto*/
+        let suma = (parseFloat(contador_ingreso) + parseFloat(monto)); /*Suma el contador de ingreso con el monto agregado*/
         contador_ingreso = suma;
         ingreso_total.innerHTML = "<p>Ingresos:   + " + contador_ingreso + "</p>" 
        }
-    if( opcion()== "Egreso"){
-       let descrip = document.getElementById('descripcion').value;
-        let monto = document.getElementById('monto').value;
-        let suma = (parseFloat(contador_egreso) + parseFloat(monto));
+    if( opcion()== "Egreso"){/*Si la opcion seleccionada es egreso*/
+       let descrip = document.getElementById('descripcion').value; /*Se obrtiene el texto de descripción*/
+        let monto = document.getElementById('monto').value; /*Se obtiene el monto*/
+        let suma = (parseFloat(contador_egreso) + parseFloat(monto)); /*Suma el contador de egreso con el monto agregado*/
         contador_egreso = suma;
        egreso_total.innerHTML = "<p>Egresos:   - " + contador_egreso + "</p>" 
         
@@ -61,6 +61,23 @@ function botonagregar() {
 }
 
 
+
+var botontab = document.querySelectorAll(".tabcontainer .btn-group button");
+var conttab = document.querySelectorAll(".tabcontainer .tablist");
+
+function show(panelIndex,color) {
+    botontab.forEach(function(Node){
+        Node.style.backgroundColor="";
+        Node.style.color="";
+    });
+    botontab[panelIndex].style.backgroundColor=color;
+    botontab[panelIndex].style.color="orange"
+    conttab.forEach(function(Node){
+        Node.style.display="none";
+    });
+    conttab[panelIndex].style.display="block";
+    conttab[panelIndex].style.backgroundColor=color;
+}    
 
 
 

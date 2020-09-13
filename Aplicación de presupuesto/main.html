@@ -55,15 +55,24 @@
             <a href="#" class=""><button type="button" class="btn btn-dark" onclick="botonagregar()">Agregar</button></a>
             
         </div>
-          <div class="col-lg-6 order-1 order-lg-2">
-          <div class="btn-group btn-group-lg" role="group">
-            <button type="button" class="btn btn-secondary">Ingresos</button>
-            <button type="button" class="btn btn-secondary">Egresos</button>
-          </div>
-            <ul class="list-group">
-                <li class="list-group-item">AQUI IRA HIERBA</li>
-                <li class="list-group-item">AQUI IRA HIERBA</li>
-            </ul>
+          <div class="col-lg-6 order-1 order-lg-2 tabcontainer">
+              <div class="btn-group btn-group-lg" role="tab" id="tabbutton">
+                    <button type="button" class="btn btn-secondary" onclick="show(0,'ffffff')">Ingresos</button>
+                    <button type="button" class="btn btn-secondary"onclick="show(1,'ffffff')">Egresos</button>
+              </div>
+              <div class="tablist">
+                <ul class="list-group" id="contenedor_ingreso">
+                    <!--<li class="list-group-item"></li>-->
+                    
+                </ul>
+              </div>
+              <div class="tablist">
+                <ul class="list-group" id="contenedor_egreso">
+                    <!--<li class="list-group-item"></li>-->
+                    
+                </ul>
+              </div>
+                
         </div>
         
 
