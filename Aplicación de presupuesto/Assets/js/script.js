@@ -30,28 +30,57 @@ function opcion(selected){
     return selected;
 }
 
+var tabingreso = document.getElementById('contenedor_ingreso');
+var tabegreso = document.getElementById('contenedor_egreso')
+var vingreso = [];
+var vegreso = [];
 
 function botonagregar() {
     
    if( opcion() == "Ingreso"){/*Si la opcion seleccionada es ingreso*/
+        tabingreso.innerHTML="";/*Limpia el tab para que no se dupliquen cada vez que se oprime el boton*/
         let descrip = document.getElementById('descripcion').value; /*Se obrtiene el texto de descripción*/
         let monto = document.getElementById('monto').value; /*Se obtiene el monto*/
         let suma = (parseFloat(contador_ingreso) + parseFloat(monto)); /*Suma el contador de ingreso con el monto agregado*/
-        contador_ingreso = suma;
-        ingreso_total.innerHTML = "<p>Ingresos:   + " + contador_ingreso + "</p>" 
+        contador_ingreso = suma; /*El valor de suma es el nuevo valor del contador ingreso*/
+        ingreso_total.innerHTML = "<p>Ingresos:   + " + "$" + contador_ingreso + "</p>"; /*Se escribe en la pagina el contador*/
+       
+       
+       /*Creacion de cadana HTML a utilizar y guardandola en Array*/
+       let contenidohtml = "<li class='list-group-item'><pre>" + descrip +"        " + "$"+ monto +  "</pre></li>";
+       vingreso.push(contenidohtml);
+       console.log(vingreso);
+       
+       /*Escribe cada dato del array*/
+       for(let i=0; i < vingreso.length; i++){
+           tabingreso.innerHTML = vingreso;
+       };
+  
        }
+    
     if( opcion()== "Egreso"){/*Si la opcion seleccionada es egreso*/
+        tabegreso.innerHTML="";
        let descrip = document.getElementById('descripcion').value; /*Se obrtiene el texto de descripción*/
         let monto = document.getElementById('monto').value; /*Se obtiene el monto*/
         let suma = (parseFloat(contador_egreso) + parseFloat(monto)); /*Suma el contador de egreso con el monto agregado*/
-        contador_egreso = suma;
-       egreso_total.innerHTML = "<p>Egresos:   - " + contador_egreso + "</p>" 
+        contador_egreso = suma; /*El valor de suma es el nuevo valor del contador egreso*/
+       egreso_total.innerHTML = "<p>Egresos:   - " + "$"+ contador_egreso + "</p>"; /*Se escribe en la pagina el contador*/
         
+          
+       /*Creacion de cadana HTML a utilizar y guardandola en Array*/
+       let contenidohtml = "<li class='list-group-item'><pre>" + descrip +"        " + "$"+ monto +  "</pre></li>";
+       vegreso.push(contenidohtml);
+       console.log(vegreso);
+       
+       /*Escribe cada dato del array*/
+       for(let i=0; i < vegreso.length; i++){
+           tabegreso.innerHTML = vegreso;
+       };
             }
-    /*Resta de valores todales*/
+    /*Resta de valores totales*/
     var diferencia = document.getElementById('diferencia');
     var dif = (parseFloat(contador_ingreso) - parseFloat(contador_egreso));
-    diferencia.innerHTML = "\t\t<h1>" + dif + "</h1>"
+    diferencia.innerHTML = "\t\t<h1>" +"$" +dif + "</h1>"
     
     
     /*Promedio de gastos*/
@@ -71,14 +100,16 @@ function show(panelIndex,color) {
         Node.style.color="";
     });
     botontab[panelIndex].style.backgroundColor=color;
-    botontab[panelIndex].style.color="orange"
+    botontab[panelIndex].style.color="gold"
     conttab.forEach(function(Node){
         Node.style.display="none";
     });
     conttab[panelIndex].style.display="block";
     conttab[panelIndex].style.backgroundColor=color;
 }    
+show(0,"");
 
+       
 
 
 
