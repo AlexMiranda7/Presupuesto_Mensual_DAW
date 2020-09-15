@@ -31,7 +31,7 @@ function opcion(selected){
 }
 
 var tabingreso = document.getElementById('contenedor_ingreso');
-var tabegreso = document.getElementById('contenedor_egreso')
+var tabegreso = document.getElementById('contenedor_egreso');
 var vingreso = [];
 var vegreso = [];
 
@@ -53,7 +53,7 @@ function botonagregar() {
        
        /*Escribe cada dato del array*/
        for(let i=0; i < vingreso.length; i++){
-           tabingreso.innerHTML = vingreso;
+           tabingreso.innerHTML = vingreso.join("");
        };
   
        }
@@ -66,15 +66,17 @@ function botonagregar() {
         contador_egreso = suma; /*El valor de suma es el nuevo valor del contador egreso*/
        egreso_total.innerHTML = "<p>Egresos:   - " + "$"+ contador_egreso + "</p>"; /*Se escribe en la pagina el contador*/
         
-          
+        /*Porcentaje de gasto en lista egreso*/
+        let detalleegreso = ((parseFloat(monto) * 100)/contador_ingreso).toFixed(2);
+        
        /*Creacion de cadana HTML a utilizar y guardandola en Array*/
-       let contenidohtml = "<li class='list-group-item'><pre>" + descrip +"        " + "$"+ monto +  "</pre></li>";
+       let contenidohtml = "<li class='list-group-item'><pre>" + descrip +"      " + "$"+ monto + "    <button>" + detalleegreso + "%</button></p></pre></li>";
        vegreso.push(contenidohtml);
        console.log(vegreso);
        
        /*Escribe cada dato del array*/
        for(let i=0; i < vegreso.length; i++){
-           tabegreso.innerHTML = vegreso;
+           tabegreso.innerHTML = vegreso.join("");
        };
             }
     /*Resta de valores totales*/
@@ -100,7 +102,7 @@ function show(panelIndex,color) {
         Node.style.color="";
     });
     botontab[panelIndex].style.backgroundColor=color;
-    botontab[panelIndex].style.color="gold"
+    botontab[panelIndex].style.color="#004c51"
     conttab.forEach(function(Node){
         Node.style.display="none";
     });
@@ -109,6 +111,22 @@ function show(panelIndex,color) {
 }    
 show(0,"");
 
+
+function validacion() {
+  if (document.getElementById('descripcion').value == "") {
+    // Si no se cumple la condicion...
+    alert('[ERROR] El campo descripción debe tener texto');
+    return false;
+  }
+  else if (document.getElementById('monto').value == "") {
+    // Si no se cumple la condicion...
+    alert('[ERROR] El campo monto debe tener un valor ');
+    return false;
+  }
+  
+  /*Si pasa todo se ejecuta la función botonagregar()*/
+  botonagregar();
+}
        
 
 

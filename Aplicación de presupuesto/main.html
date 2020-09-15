@@ -38,7 +38,7 @@
       <div class="row content">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1>Transacción</h1>
-            <form>
+            <form name="formulario">
                 <div class="form-group">
                 <select id="formgroup" class="form-control form" onchange="opcion()">
                     <option>Ingreso</option>
@@ -46,30 +46,28 @@
                 </select>
                 </div>
                 <div class="form-goup">
-                    <input class="form-control" id="descripcion" placeholder="Descpripcion">
+                    <input class="form-control" id="descripcion" placeholder="Descpripcion" required}>
+                    <span class="errordescrip" id="errordescrip"></span>
                 </div>
                 <div class="form-goup">
-                    <input type="number" class="form-control" id="monto" placeholder="Monto">
+                    <input type="number" class="form-control" id="monto" placeholder="Monto" required>
+                    <span class="errormonto" id="errormonto"></span>
                 </div>
             </form>
-            <a href="#" class=""><button type="button" class="btn btn-dark" onclick="botonagregar()">Agregar</button></a>
+            <a href="#" class=""><button type="submit" value="agregar" name="agregar" class="btn btn-dark" onclick="validacion()">Agregar</button></a>
             
         </div>
           <div class="col-lg-6 order-1 order-lg-2 tabcontainer">
               <div class="btn-group btn-group-lg" role="tab" id="tabbutton">
-                    <button type="button" class="btn btn-secondary" onclick="show(0,'ffffff')">Ingresos</button>
-                    <button type="button" class="btn btn-secondary"onclick="show(1,'ffffff')">Egresos</button>
+                    <button type="button" class="btn btn-secondary" onclick="show(0,'004c51')">Ingresos</button>
+                    <button type="button" class="btn btn-secondary"onclick="show(1,'004c51')">Egresos</button>
               </div>
               <div class="tablist">
-                <ul class="list-group" id="contenedor_ingreso">
-                    
-                    
+                <ul class="list-group" id="contenedor_ingreso">             
                 </ul>
               </div>
               <div class="tablist">
                 <ul class="list-group" id="contenedor_egreso">
-                    <!--<li class="list-group-item"></li>-->
-                    
                 </ul>
               </div>
                 

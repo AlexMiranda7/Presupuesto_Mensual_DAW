@@ -22,10 +22,10 @@ h1, h2, h3, h4, h5, h6 {
 #header{
     width: 100%;    
     height: 55vh;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-bottom: 10px;
     text-align: center;
-    background-color: gray;
+    background-image: linear-gradient(to bottom right, #24D1FF, #33FFB5);
     
 }
 
@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #black.list-group-item {
-    background-color: dimgray;
+    background-color: #004c51;
     color: white; 
 }
 
@@ -55,6 +55,16 @@ p{
 
 #porcentaje {
     color: aliceblue;
+    background-color: #004c51;
+    height: 35px; width: 65px;
+    margin-left: inherit; margin-right: inherit;
+    border-radius: 5px; 
+}
+
+#porcentaje p{
+    margin: 0px;
+    padding-top: 5px;
+    
 }
 
 /*FORMULARIOS*/
@@ -79,22 +89,33 @@ p{
 
 #formularios button{
     margin-top: 10px;
+    background-image: linear-gradient(to bottom right, #24D1FF, #33FFB5);
+    border-radius: 5px; 
+    border: none;
 }
 
 #formularios button.btn-secondary{
     margin-bottom: 10px;
     width: 200px;
+    
 }
 
 #formularios li{
     margin: 5px;
+    padding: inherit;
     width: 400px;
     align-self: center;
+    font-size: 22px; 
+    
+}
+
+#formulario li.button{
+    margin: 0px;
 }
 
 #formularios pre{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 5px;
     font-family: 'Bree Serif', serif;
-  color: #444444;
+    color:  #004c51; 
 }
