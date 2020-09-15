@@ -76,13 +76,13 @@ function botonagregar() {
        
        /*Escribe cada dato del array*/
        for(let i=0; i < vegreso.length; i++){
-           tabegreso.innerHTML = vegreso.join("");
+           tabegreso.innerHTML = vegreso.join("");/*.Join("") para que no imprima la coma(,) del vector*/
        };
             }
     /*Resta de valores totales*/
     var diferencia = document.getElementById('diferencia');
     var dif = (parseFloat(contador_ingreso) - parseFloat(contador_egreso));
-    diferencia.innerHTML = "\t\t<h1>" +"$" +dif + "</h1>"
+    diferencia.innerHTML = "\t\t<h1 id='dif'>" +"$" +dif + "</h1>"
     
     
     /*Promedio de gastos*/
@@ -126,6 +126,11 @@ function validacion() {
   
   /*Si pasa todo se ejecuta la función botonagregar()*/
   botonagregar();
+}
+
+function limpiar(){
+    document.getElementById('descripcion').value= "";
+    document.getElementById('monto').value= "";
 }
        
 
